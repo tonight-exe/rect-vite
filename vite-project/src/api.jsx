@@ -26,3 +26,12 @@ export const getItem = async () => {
 
     }
   };
+  export const createPJ = async (newPJ) => {
+    try {
+        const response = await axios.post(elden + "/personaje", newPJ);
+        return response.data;
+    } catch (error) {
+        console.error('Error creating new character: ', error);
+        return error;
+    }
+};

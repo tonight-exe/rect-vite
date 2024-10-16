@@ -1,29 +1,41 @@
 import { getItem, getPJ } from "/src/api.jsx";
-import React, { useEffect, useState } from 'react';
-import "/src/app.css";
-import Items from './componentes/item.jsx';
 
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import "/src/app.css";
+import Pj from './componentes/pj.jsx';
+import { VerArmas } from './paginas/ver_armas.jsx';
 
 export function App() {
-    const [items, setItems] = useState([]);
+    const [pjs, setPjs] = useState([]);
+    const navigate = useNavigate();
 
     async function fetchItems() {
-        const resp = await getItem();
-        setItems(resp);
+        const resp = await getPJ();
+        setPjs(resp);
     }
 
     useEffect(() => {
         fetchItems();
     }, []);
 
-    return (
-        <>
-            <button onClick={fetchItems}>obtener armas</button>
-            <button onClick={getPJ}>obtener personaje</button>
-            <button>editar</button>
-            <button>crear</button>
+    const handleViewArmas = () => {
+        navigate('/ver_armas');
+    };
 
-            <Items items={items} />
-        </>
+    return (
+        <Routes>
+            <Route path="/" element={
+                <div>
+                    <button onClick={handleViewArmas}>crear nuevo personaje</button>
+                    <button>editar</button>
+                    <ul><Pj pjs={pjs} /></ul>
+                </div>
+                
+            } />
+            <Route path="/ver_armas" element={<VerArmas />} />
+        </Routes>
     );
 }
+
+export default App;

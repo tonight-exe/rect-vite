@@ -1,10 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import {App} from '/src/app.jsx'
-import "/src/index.css"
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import WrappedApp from './app.jsx';
+import "/src/index.css";
 
-const root = createRoot(document.getElementById('root'))
+// Obtén el elemento root
+const rootElement = document.getElementById('root');
 
+// Crea root usando createRoot
+const root = createRoot(rootElement);
+
+// Renderiza la aplicación
 root.render(
-  <App />
-)
+  <StrictMode>
+    <BrowserRouter>
+      <WrappedApp />
+    </BrowserRouter>
+  </StrictMode>
+);

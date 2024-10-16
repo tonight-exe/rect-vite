@@ -1,5 +1,5 @@
-import React from "react";
- export const Items = ({ items }) => {
+import React from 'react';
+const Items = ({ items }) => {
     return (
         <div>
             <h2>Objetos</h2>
@@ -19,4 +19,4 @@ import React from "react";
         </div>
     );
 };
-
+export default Items;

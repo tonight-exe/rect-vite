@@ -1,7 +1,7 @@
 import { getItem, getPJ } from "/src/api.jsx";
 import React, { useEffect, useState } from 'react';
 import "/src/app.css";
-import Items from '/src/componentes/item.jsx';
+import Items from './componentes/item.jsx';
 
 
 export function App() {

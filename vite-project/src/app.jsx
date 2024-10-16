@@ -1,5 +1,5 @@
-import { getItem, getPJ } from "/src/api.jsx";
-
+import { getItem, getPJ, deletePJ } from "/src/api.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import "/src/app.css";
@@ -22,14 +22,21 @@ export function App() {
     const handleViewArmas = () => {
         navigate('/ver_armas');
     };
+    const handleDelete = async (id_pj) => {
+        try {
+            await deletePJ(id_pj);
+            setPjs(pjs.filter(pj => pj.id_pj !== id_pj));
+        } catch (error) {
+            console.error('Error deleting character:', error);
+        }
+    };
 
     return (
         <Routes>
             <Route path="/" element={
                 <div>
                     <button onClick={handleViewArmas}>crear nuevo personaje</button>
-                    <button>editar</button>
-                    <ul><Pj pjs={pjs} /></ul>
+                    <ul><Pj pjs={pjs} onDelete={handleDelete} /></ul>
                 </div>
                 
             } />

@@ -1,18 +1,28 @@
 import React from 'react';
-
-const Pj = ({ pjs = [] }) => {
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+const Pj = ({ pjs = [], onDelete, onEdit}) => {
+     console.log('pjs:', pjs);
     return (
-        <div>
-            <h2>Objetos</h2>
+        <div className="d-flex flex-wrap">
             {pjs.length > 0 ? (
-                pjs.map((item) => (
-                    <div key={item.id_pj}>
-                        <p>Name: {item.Name}</p>
-                        <p>id_Arma: {item.id_Arma}</p>
-                        <p>id_Armadura: {item.id_Armadura}</p>
-                        <p>Age: {item.Age}</p>
-                        <p>ID: {item.id_pj}</p>
-                    </div>
+                pjs.map((item, index) => (
+                    <Card key={index} style={{ width: '18rem', margin: '10px' }}>
+                    <Card.Img variant="top" src="https://media.vandal.net/m/2-2022/2022228928242_10.jpg" />
+                    <Card.Body>
+                        <Card.Title>{item.Name }</Card.Title>
+                        <Card.Text key={item.id_pj}>
+                   
+                        <span>id_Arma: {item.id_Arma}</span><br />
+                        <span>id_Armadura: {item.id_Armadura} </span><br />
+                        <span>Age: {item.Age}</span><br />
+                        <span>ID: {item.id_pj}</span>
+
+                    </Card.Text>
+                    <Button variant="primary" style={{ marginRight: '10px' }} onClick={() => onEdit(item)}>Editar</Button>
+                    <Button variant="danger" onClick={() => onDelete(item.id_pj)}>Eliminar</Button>
+                    </Card.Body>
+                    </Card>
                 ))
             ) : (
                 <p>No hay objetos</p>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createPJ } from '../api.jsx';
-
+//crear nuevo personaje
 export const VerArmas = () => {
     const [newPJ, setNewPJ] = useState({
         Name: '',

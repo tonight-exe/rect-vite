@@ -35,3 +35,19 @@ export const getItem = async () => {
         return error;
     }
 };
+  export const deletePJ = async (id_pj) => {
+    try {
+        await axios.delete(`${elden}/personaje/${id_pj}`);
+    } catch (error) {
+        console.error('Error deleting character:', error);
+    }
+};
+export const updatePJ = async (id_pj, updatedPJ) => {
+  try {
+      const response = await axios.put(`${elden}/personaje/${id_pj}`, updatedPJ);
+      return response.data;
+  } catch (error) {
+      console.error('Error updating character:', error);
+      return error;
+  }
+};

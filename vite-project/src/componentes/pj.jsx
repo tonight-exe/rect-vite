@@ -2,13 +2,14 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 const Pj = ({ pjs = [], onDelete, onEdit}) => {
-     console.log('pjs:', pjs);
+     console.log(pjs);
     return (
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-wrap  justify-content-center">
+
             {pjs.length > 0 ? (
                 pjs.map((item, index) => (
                     <Card key={index} style={{ width: '18rem', margin: '10px' }}>
-                    <Card.Img variant="top" src="https://media.vandal.net/m/2-2022/2022228928242_10.jpg" />
+                    <Card.Img variant="top" src={item.img} />
                     <Card.Body>
                         <Card.Title>{item.Name }</Card.Title>
                         <Card.Text key={item.id_pj}>

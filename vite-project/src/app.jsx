@@ -1,10 +1,12 @@
-import { getItem, getPJ, deletePJ } from "/src/api.jsx";
+import {  getPJ, deletePJ } from "/src/api.jsx";
+import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import "/src/app.css";
 import Pj from './componentes/pj.jsx';
 import { VerArmas } from './paginas/ver_armas.jsx';
+import Edit from './paginas/edit.jsx';
 
 export function App() {
     const [pjs, setPjs] = useState([]);
@@ -30,17 +32,25 @@ export function App() {
             console.error('Error deleting character:', error);
         }
     };
+    const handleEdit = (pj) => {
+        navigate(`/edit/${pj.id_pj}`);
+    };
 
     return (
         <Routes>
             <Route path="/" element={
                 <div>
-                    <button onClick={handleViewArmas}>crear nuevo personaje</button>
-                    <ul><Pj pjs={pjs} onDelete={handleDelete} /></ul>
+                    <div className="button-container">
+                        <Button variant="dark " onClick={handleViewArmas}>crear nuevo personaje</Button>
+                    </div>
+                    <ul>
+                        <Pj pjs={pjs} onDelete={handleDelete} onEdit={handleEdit} />
+                    </ul>
                 </div>
                 
             } />
             <Route path="/ver_armas" element={<VerArmas />} />
+            <Route path="/edit/:id_pj" element={<Edit />} />
         </Routes>
     );
 }

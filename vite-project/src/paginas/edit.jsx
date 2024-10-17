@@ -40,7 +40,7 @@ const Edit = () => {
     };
 
     return (
-        <div>
+        <div className="form-container">
          <form onSubmit={handleFormSubmit}>
             <input type="text" name="Name" value={formData.Name} onChange={handleFormChange} placeholder="Name" />
             <input type="text" name="id_Arma" value={formData.id_Arma} onChange={handleFormChange} placeholder="id_Arma" />

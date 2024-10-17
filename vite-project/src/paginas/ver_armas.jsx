@@ -47,6 +47,7 @@ export const VerArmas = () => {
     };
 
     return (
+        <div className='form-container2'>
         <form onSubmit={handleSubmit}>
             <input type="text" name="Name" value={newPJ.Name} onChange={handleChange} placeholder="Name" />
             <input type="text" name="id_Arma" value={newPJ.id_Arma} onChange={handleChange} placeholder="id_Arma" />
@@ -59,5 +60,6 @@ export const VerArmas = () => {
             </select>
             <button type="submit">Crear</button>
         </form>
+        </div>
     );
 };

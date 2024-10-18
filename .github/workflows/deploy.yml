@@ -39,4 +39,4 @@ jobs:
         with:
           project: "tonight-rect-vite-50"
           entrypoint: "https://tonight-exe.github.io/rect-vite/vite-project/"
-          root: "/vite-project"
+          root: "/rect-vite/vite-project/"

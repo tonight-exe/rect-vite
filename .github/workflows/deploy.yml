@@ -38,5 +38,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "tonight-rect-vite-50"
-          entrypoint: "https://deno.land/std@0.217.0/http/file_server.ts"
+          entrypoint: "https://tonight-exe.github.io/rect-vite/vite-project/"
           root: "/vite-project"

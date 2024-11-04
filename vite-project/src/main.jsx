@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import WrappedApp from './app.jsx';
-import "/src/index.css";
+import "./index.css";
 import { App } from './app.jsx';
 
 // Obtén el elemento root

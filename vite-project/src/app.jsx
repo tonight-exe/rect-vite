@@ -1,9 +1,9 @@
-import {  getPJ, deletePJ } from "/src/api.jsx";
+import {  getPJ, deletePJ } from "./api.jsx";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import "/src/app.css";
+import "./app.css";
 import Pj from './componentes/pj.jsx';
 import { VerArmas } from './paginas/ver_armas.jsx';
 import Edit from './paginas/edit.jsx';
